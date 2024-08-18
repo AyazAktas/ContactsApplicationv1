@@ -20,7 +20,7 @@ class AnasayfaFragment : Fragment() {
     private lateinit var binding: FragmentAnasayfaBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding=DataBindingUtil.inflate(inflater,R.id.anasayfaFragment ,container, false)
+        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa ,container, false)
         binding.anasayfaFragment=this
         binding.anasayfaToolbarBaslik="Kişilerim"
 
