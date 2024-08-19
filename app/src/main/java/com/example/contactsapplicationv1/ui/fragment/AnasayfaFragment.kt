@@ -59,4 +59,9 @@ class AnasayfaFragment : Fragment() {
         Navigation.findNavController(it).navigate(R.id.kisiKayitGecis)
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.kisileriYukle()
+    }
+
 }

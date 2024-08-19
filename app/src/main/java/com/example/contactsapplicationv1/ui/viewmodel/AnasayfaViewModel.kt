@@ -19,6 +19,7 @@ class AnasayfaViewModel:ViewModel() {
     fun sil(kisi_id:Int){
         CoroutineScope(Dispatchers.Main).launch {
             krepo.sil(kisi_id)
+            kisileriYukle()
         }
     }
     fun kisileriYukle(){
