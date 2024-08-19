@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactsapplicationv1.R
@@ -13,9 +14,10 @@ import com.example.contactsapplicationv1.data.entity.Kisiler
 import com.example.contactsapplicationv1.databinding.CardTasarimBinding
 import com.example.contactsapplicationv1.databinding.FragmentAnasayfaBinding
 import com.example.contactsapplicationv1.ui.fragment.AnasayfaFragmentDirections
+import com.example.contactsapplicationv1.ui.viewmodel.AnasayfaViewModel
 import com.google.android.material.snackbar.Snackbar
 
-class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>):  //cardview_Xml tanıtma işlemi gibi düşün erişme işlemi
+class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>,var viewModel: AnasayfaViewModel):  //cardview_Xml tanıtma işlemi gibi düşün erişme işlemi
     RecyclerView.Adapter<KisilerAdapter.CardTasarimHolder>() {
 
     inner class CardTasarimHolder(var tasarim:CardTasarimBinding):RecyclerView.ViewHolder(tasarim.root)//hpşder binding işlem yapılmasıın sağlar
@@ -39,7 +41,7 @@ class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>):  //
         t.imageViewSil.setOnClickListener {
             Snackbar.make(it,"${kisi.kisi_Ad} silinsin mi?",Snackbar.LENGTH_SHORT)
                 .setAction("Evet"){
-                    sil(kisi.kisi_id)
+                    viewModel.sil(kisi.kisi_id)
                 }
                 .show()
         }
@@ -48,9 +50,5 @@ class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>):  //
 
     override fun getItemCount(): Int {
         return kisilerListesi.size
-    }
-
-    fun sil(kisi_id:Int){
-        Log.e("Kisi Sil",kisi_id.toString())
     }
 }

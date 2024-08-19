@@ -38,7 +38,7 @@ class AnasayfaFragment : Fragment() {
         kisilerListesi.add(k2)
         kisilerListesi.add(k3)
 
-        val kisilerAdapter=KisilerAdapter(requireContext(),kisilerListesi)
+        val kisilerAdapter=KisilerAdapter(requireContext(),kisilerListesi,viewModel)
         binding.kisilerAdapter=kisilerAdapter
 
 
