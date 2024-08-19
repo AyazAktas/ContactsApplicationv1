@@ -29,18 +29,10 @@ class AnasayfaFragment : Fragment() {
         binding.anasayfaToolbarBaslik="Kişilerim"
 
         binding.rv.layoutManager=LinearLayoutManager(requireContext())//alt alta gözükmesini saplar
-
-        val kisilerListesi=ArrayList<Kisiler>()
-        val k1=Kisiler(71,"ayaz","5645645")
-        val k2=Kisiler(12,"yaz","56455")
-        val k3=Kisiler(7,"az","565645")
-        kisilerListesi.add(k1)
-        kisilerListesi.add(k2)
-        kisilerListesi.add(k3)
-
-        val kisilerAdapter=KisilerAdapter(requireContext(),kisilerListesi,viewModel)
-        binding.kisilerAdapter=kisilerAdapter
-
+        viewModel.kisilerListesi.observe(viewLifecycleOwner){
+            val kisilerAdapter=KisilerAdapter(requireContext(),it,viewModel)
+            binding.kisilerAdapter=kisilerAdapter
+        }
 
         binding.searchView.setOnQueryTextListener(object : OnQueryTextListener{
             override fun onQueryTextChange(newText: String): Boolean {
