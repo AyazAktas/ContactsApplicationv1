@@ -9,15 +9,19 @@ import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.contactsapplicationv1.R
 import com.example.contactsapplicationv1.data.entity.Kisiler
 import com.example.contactsapplicationv1.databinding.FragmentAnasayfaBinding
 import com.example.contactsapplicationv1.ui.adapter.KisilerAdapter
+import com.example.contactsapplicationv1.ui.viewmodel.AnasayfaViewModel
+import com.example.contactsapplicationv1.ui.viewmodel.KisiKayitViewModel
 
 class AnasayfaFragment : Fragment() {
     private lateinit var binding: FragmentAnasayfaBinding
+    private lateinit var viewModel: AnasayfaViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa ,container, false)
@@ -52,6 +56,12 @@ class AnasayfaFragment : Fragment() {
 
         return binding.root
     }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel: AnasayfaViewModel by viewModels()
+        viewModel=tempViewModel
+    }
+
 
     fun fabTikla(it:View){
         Navigation.findNavController(it).navigate(R.id.kisiKayitGecis)
