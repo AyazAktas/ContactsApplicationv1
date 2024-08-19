@@ -11,4 +11,5 @@ class KisilerRepository {
     suspend fun guncelle(kisi_Id:Int,kisi_Ad:String,kisi_Tel:String)=kisilerdatasource.guncelle(kisi_Id,kisi_Ad,kisi_Tel)
     suspend fun sil(kisi_id:Int)=kisilerdatasource.sil(kisi_id)
     suspend fun kisileriYukle():List<Kisiler> = kisilerdatasource.kisileriYukle()
+    suspend fun ara(aramaKelimesi:String):List<Kisiler> = kisilerdatasource.ara(aramaKelimesi)
 }

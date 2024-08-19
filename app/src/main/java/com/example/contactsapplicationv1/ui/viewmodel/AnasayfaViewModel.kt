@@ -26,4 +26,10 @@ class AnasayfaViewModel:ViewModel() {
             kisilerListesi.value=krepo.kisileriYukle()
         }
     }
+
+  fun ara(aramaKelimesi:String){
+      CoroutineScope(Dispatchers.Main).launch {
+          kisilerListesi.value=krepo.ara(aramaKelimesi)
+      }
+  }
 }
