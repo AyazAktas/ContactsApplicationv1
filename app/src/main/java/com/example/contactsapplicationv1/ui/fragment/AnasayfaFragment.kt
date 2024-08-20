@@ -18,6 +18,7 @@ import com.example.contactsapplicationv1.databinding.FragmentAnasayfaBinding
 import com.example.contactsapplicationv1.ui.adapter.KisilerAdapter
 import com.example.contactsapplicationv1.ui.viewmodel.AnasayfaViewModel
 import com.example.contactsapplicationv1.ui.viewmodel.KisiKayitViewModel
+import com.example.contactsapplicationv1.utils.gecisYap
 
 class AnasayfaFragment : Fragment() {
     private lateinit var binding: FragmentAnasayfaBinding
@@ -56,7 +57,7 @@ class AnasayfaFragment : Fragment() {
 
 
     fun fabTikla(it:View){
-        Navigation.findNavController(it).navigate(R.id.kisiKayitGecis)
+        Navigation.gecisYap(it,R.id.kisiKayitGecis)
     }
 
     override fun onResume() {
