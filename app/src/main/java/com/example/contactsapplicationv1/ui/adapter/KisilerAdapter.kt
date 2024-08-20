@@ -15,6 +15,7 @@ import com.example.contactsapplicationv1.databinding.CardTasarimBinding
 import com.example.contactsapplicationv1.databinding.FragmentAnasayfaBinding
 import com.example.contactsapplicationv1.ui.fragment.AnasayfaFragmentDirections
 import com.example.contactsapplicationv1.ui.viewmodel.AnasayfaViewModel
+import com.example.contactsapplicationv1.utils.gecisYap
 import com.google.android.material.snackbar.Snackbar
 
 class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>,var viewModel: AnasayfaViewModel):  //cardview_Xml tanıtma işlemi gibi düşün erişme işlemi
@@ -36,7 +37,7 @@ class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>,var v
 
         t.cardViewSatir.setOnClickListener {
             val gecis=AnasayfaFragmentDirections.kisiDetayGecis(kisi=kisi)
-            Navigation.findNavController(it).navigate(gecis)
+            Navigation.gecisYap(it,gecis)
         }
         t.imageViewSil.setOnClickListener {
             Snackbar.make(it,"${kisi.kisi_Ad} silinsin mi?",Snackbar.LENGTH_SHORT)
