@@ -14,8 +14,9 @@ import com.example.contactsapplicationv1.databinding.FragmentKisiDetayBinding
 import com.example.contactsapplicationv1.ui.viewmodel.AnasayfaViewModel
 import com.example.contactsapplicationv1.ui.viewmodel.KisiDetayViewModel
 import com.example.contactsapplicationv1.ui.viewmodel.KisiKayitViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class KisiDetayFragment : Fragment() {
     private lateinit var binding: FragmentKisiDetayBinding
     private lateinit var viewModel: KisiDetayViewModel

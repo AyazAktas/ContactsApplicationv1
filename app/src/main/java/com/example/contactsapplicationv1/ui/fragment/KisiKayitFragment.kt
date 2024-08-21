@@ -12,7 +12,9 @@ import com.example.contactsapplicationv1.R
 import com.example.contactsapplicationv1.databinding.FragmentKisiKayitBinding
 import com.example.contactsapplicationv1.ui.viewmodel.KisiDetayViewModel
 import com.example.contactsapplicationv1.ui.viewmodel.KisiKayitViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class KisiKayitFragment : Fragment() {
     private lateinit var binding: FragmentKisiKayitBinding
     private lateinit var viewModel: KisiKayitViewModel

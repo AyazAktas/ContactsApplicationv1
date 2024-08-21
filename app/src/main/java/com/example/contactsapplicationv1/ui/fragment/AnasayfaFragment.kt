@@ -19,7 +19,9 @@ import com.example.contactsapplicationv1.ui.adapter.KisilerAdapter
 import com.example.contactsapplicationv1.ui.viewmodel.AnasayfaViewModel
 import com.example.contactsapplicationv1.ui.viewmodel.KisiKayitViewModel
 import com.example.contactsapplicationv1.utils.gecisYap
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AnasayfaFragment : Fragment() {
     private lateinit var binding: FragmentAnasayfaBinding
     private lateinit var viewModel: AnasayfaViewModel
