@@ -2,23 +2,17 @@ package com.example.contactsapplicationv1.data.datasource
 
 import android.util.Log
 import com.example.contactsapplicationv1.data.entity.Kisiler
+import com.example.contactsapplicationv1.room.KisilerDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class KisilerDataSource
+class KisilerDataSource(var kdao:KisilerDao )
 {
 //sayfaya veri aktarımı varsa o live data kulla
 
     suspend fun kisileriYukle():List<Kisiler> =
         withContext(Dispatchers.IO){
-            val kisilerListesi=ArrayList<Kisiler>()
-            val k1=Kisiler(71,"ayaz","5645645")
-            val k2=Kisiler(12,"yaz","56455")
-            val k3=Kisiler(7,"az","565645")
-            kisilerListesi.add(k1)
-            kisilerListesi.add(k2)
-            kisilerListesi.add(k3)
-            return@withContext kisilerListesi
+            return@withContext kdao.kisileriYukle()
         }
 
     suspend fun kaydet(kisi_Ad:String,kisi_Tel:String){
