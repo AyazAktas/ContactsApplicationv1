@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 
 class KisilerDataSource(var kdao:KisilerDao )
 {
-//sayfaya veri aktarımı varsa o live data kulla
+//sayfaya veri aktarımı varsa o live data kullan !
 
     suspend fun kisileriYukle():List<Kisiler> =
         withContext(Dispatchers.IO){
