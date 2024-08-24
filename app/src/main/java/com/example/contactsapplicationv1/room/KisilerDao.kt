@@ -20,4 +20,7 @@ interface KisilerDao {
 
     @Delete
     suspend fun sil(kisi: Kisiler)
+
+    @Query("SELECT * FROM kisiler WHERE kisi_Ad like '%' || :aramaKelimesi|| '%'")
+    suspend fun ara(aramaKelimesi:String):List<Kisiler>
 }
