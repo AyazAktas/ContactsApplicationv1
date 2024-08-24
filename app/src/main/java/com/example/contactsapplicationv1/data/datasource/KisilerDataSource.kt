@@ -1,6 +1,7 @@
 package com.example.contactsapplicationv1.data.datasource
 
 import android.util.Log
+import androidx.compose.runtime.traceEventStart
 import com.example.contactsapplicationv1.data.entity.Kisiler
 import com.example.contactsapplicationv1.room.KisilerDao
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +21,8 @@ class KisilerDataSource(var kdao:KisilerDao )
         kdao.kaydet(yeniKisi)
     }
     suspend fun guncelle(kisi_Id:Int,kisi_Ad:String,kisi_Tel:String){
-        Log.e("Kisi Guncelle","$kisi_Id - $kisi_Ad - $kisi_Tel")
+        val guncellenenKisi=Kisiler(kisi_Id,kisi_Ad, kisi_Tel)
+        kdao.guncelle(guncellenenKisi)
     }
     suspend fun sil(kisi_id:Int){
         Log.e("Kisi Sil",kisi_id.toString())
