@@ -16,7 +16,8 @@ class KisilerDataSource(var kdao:KisilerDao )
         }
 
     suspend fun kaydet(kisi_Ad:String,kisi_Tel:String){
-    Log.e("Kisi Kaydet","$kisi_Ad - $kisi_Tel")
+        val yeniKisi=Kisiler(0,kisi_Ad,kisi_Tel)
+        kdao.kaydet(yeniKisi)
     }
     suspend fun guncelle(kisi_Id:Int,kisi_Ad:String,kisi_Tel:String){
         Log.e("Kisi Guncelle","$kisi_Id - $kisi_Ad - $kisi_Tel")
@@ -33,4 +34,5 @@ class KisilerDataSource(var kdao:KisilerDao )
             kisilerListesi.add(k1)
             return@withContext kisilerListesi
         }
+
 }

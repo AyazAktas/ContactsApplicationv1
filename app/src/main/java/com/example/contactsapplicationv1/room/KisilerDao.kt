@@ -1,6 +1,7 @@
 package com.example.contactsapplicationv1.room
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import com.example.contactsapplicationv1.data.entity.Kisiler
 
@@ -8,4 +9,7 @@ import com.example.contactsapplicationv1.data.entity.Kisiler
 interface KisilerDao {
     @Query("SELECT * FROM kisiler")
     suspend fun kisileriYukle():List<Kisiler>
+
+    @Insert
+    suspend fun kaydet(kisi: Kisiler)
 }
