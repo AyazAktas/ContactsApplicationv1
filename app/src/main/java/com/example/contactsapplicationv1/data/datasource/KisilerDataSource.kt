@@ -25,7 +25,8 @@ class KisilerDataSource(var kdao:KisilerDao )
         kdao.guncelle(guncellenenKisi)
     }
     suspend fun sil(kisi_id:Int){
-        Log.e("Kisi Sil",kisi_id.toString())
+        val silinenKisi=Kisiler(kisi_id,"","")
+        kdao.sil(silinenKisi)
     }
 
 
