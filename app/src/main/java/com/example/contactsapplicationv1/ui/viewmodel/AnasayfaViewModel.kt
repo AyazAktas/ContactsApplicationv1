@@ -20,14 +20,13 @@ class AnasayfaViewModel @Inject constructor(var krepo:KisilerRepository) :ViewMo
 
     fun sil(kisi_id:String){
         krepo.sil(kisi_id)
-        kisileriYukle()
     }
     fun kisileriYukle(){
-        kisilerListesi.value=krepo.kisileriYukle()
+        kisilerListesi=krepo.kisileriYukle()
 
     }
 
   fun ara(aramaKelimesi:String){
-      kisilerListesi.value=krepo.ara(aramaKelimesi)
+      kisilerListesi=krepo.ara(aramaKelimesi)
   }
 }
