@@ -36,10 +36,13 @@ class KisilerDataSource(val collectionReference: CollectionReference)
         collectionReference.document().set(yeniKisi)
     }
     fun guncelle(kisi_Id:String,kisi_Ad:String,kisi_Tel:String){
-        Log.e("Kisi Guncelle","$kisi_Id - $kisi_Ad - $kisi_Tel")
+        val guncellenenKisi=HashMap<String,Any>()
+        guncellenenKisi["kisi_ad"]=kisi_Ad
+        guncellenenKisi["kisi_tel"]=kisi_Tel
+        collectionReference.document(kisi_Id).update(guncellenenKisi)
     }
     fun sil(kisi_id:String){
-        Log.e("Kisi Sil",kisi_id.toString())
+        collectionReference.document(kisi_id).delete()
     }
 
     fun ara(aramaKelimesi:String):MutableLiveData<List<Kisiler>>{
