@@ -43,7 +43,22 @@ class KisilerDataSource(val collectionReference: CollectionReference)
     }
 
     fun ara(aramaKelimesi:String):MutableLiveData<List<Kisiler>>{
-       return MutableLiveData<List<Kisiler>>()
+        collectionReference.addSnapshotListener { value, error ->
+            if(value!=null){
+                val liste=ArrayList<Kisiler>()
+                for(d in value.documents){
+                    val kisi=d.toObject(Kisiler::class.java)
+                    if (kisi != null) {
+                        if (kisi.kisi_Ad!!.lowercase().contains(aramaKelimesi.lowercase())){
+                            kisi.kisi_id=d.id
+                            liste.add(kisi)
+                        }
+                    }
+                }
+                kisilerListesi.value=liste
+            }
+        }
+        return kisilerListesi
     }
 
 }
