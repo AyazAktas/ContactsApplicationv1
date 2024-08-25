@@ -12,11 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class KisiKayitViewModel@Inject constructor(var krepo:KisilerRepository):ViewModel() {
 
-   fun kaydet(kisi_Ad:String,kisi_Tel:String){
-       CoroutineScope(Dispatchers.Main).launch {
-           krepo.kaydet(kisi_Ad,kisi_Tel)
-       }
-
-
+   fun kaydet(kisi_Ad:String,kisi_Tel:String) {
+       krepo.kaydet(kisi_Ad, kisi_Tel)
    }
 }

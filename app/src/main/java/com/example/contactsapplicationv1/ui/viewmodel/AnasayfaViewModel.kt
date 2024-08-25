@@ -18,21 +18,16 @@ class AnasayfaViewModel @Inject constructor(var krepo:KisilerRepository) :ViewMo
         kisileriYukle()
     }
 
-    fun sil(kisi_id:Int){
-        CoroutineScope(Dispatchers.Main).launch {
-            krepo.sil(kisi_id)
-            kisileriYukle()
-        }
+    fun sil(kisi_id:String){
+        krepo.sil(kisi_id)
+        kisileriYukle()
     }
     fun kisileriYukle(){
-        CoroutineScope(Dispatchers.Main).launch {
-            kisilerListesi.value=krepo.kisileriYukle()
-        }
+        kisilerListesi.value=krepo.kisileriYukle()
+
     }
 
   fun ara(aramaKelimesi:String){
-      CoroutineScope(Dispatchers.Main).launch {
-          kisilerListesi.value=krepo.ara(aramaKelimesi)
-      }
+      kisilerListesi.value=krepo.ara(aramaKelimesi)
   }
 }

@@ -42,7 +42,7 @@ class KisilerAdapter(var mContext:Context,var kisilerListesi:List<Kisiler>,var v
         t.imageViewSil.setOnClickListener {
             Snackbar.make(it,"${kisi.kisi_Ad} silinsin mi?",Snackbar.LENGTH_SHORT)
                 .setAction("Evet"){
-                    viewModel.sil(kisi.kisi_id)
+                    viewModel.sil(kisi.kisi_id!!)
                 }
                 .show()
         }
