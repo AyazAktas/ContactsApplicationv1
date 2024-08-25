@@ -37,8 +37,8 @@ class KisilerDataSource(val collectionReference: CollectionReference)
     }
     fun guncelle(kisi_Id:String,kisi_Ad:String,kisi_Tel:String){
         val guncellenenKisi=HashMap<String,Any>()
-        guncellenenKisi["kisi_ad"]=kisi_Ad
-        guncellenenKisi["kisi_tel"]=kisi_Tel
+        guncellenenKisi["kisi_Ad"]=kisi_Ad
+        guncellenenKisi["kisi_Tel"]=kisi_Tel
         collectionReference.document(kisi_Id).update(guncellenenKisi)
     }
     fun sil(kisi_id:String){
