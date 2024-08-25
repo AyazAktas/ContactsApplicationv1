@@ -40,7 +40,7 @@ class KisiDetayFragment : Fragment() {
         viewModel=tempViewModel
     }
 
-    fun buttonGuncelle(kisi_Id:Int,kisi_Ad:String,kisi_Tel:String){
+    fun buttonGuncelle(kisi_Id:String,kisi_Ad:String,kisi_Tel:String){
         viewModel.guncelle(kisi_Id,kisi_Ad,kisi_Tel)
     }
 }
