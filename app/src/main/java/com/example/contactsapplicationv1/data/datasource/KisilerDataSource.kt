@@ -12,9 +12,9 @@ class KisilerDataSource
     suspend fun kisileriYukle():List<Kisiler> =
         withContext(Dispatchers.IO){
             val kisilerListesi=ArrayList<Kisiler>()
-            val k1=Kisiler(71,"ayaz","5645645")
-            val k2=Kisiler(12,"yaz","56455")
-            val k3=Kisiler(7,"az","565645")
+            val k1=Kisiler("71","poyraz","5645645")
+            val k2=Kisiler("12","yaz","56455")
+            val k3=Kisiler("7","az","565645")
             kisilerListesi.add(k1)
             kisilerListesi.add(k2)
             kisilerListesi.add(k3)
@@ -24,10 +24,10 @@ class KisilerDataSource
     suspend fun kaydet(kisi_Ad:String,kisi_Tel:String){
     Log.e("Kisi Kaydet","$kisi_Ad - $kisi_Tel")
     }
-    suspend fun guncelle(kisi_Id:Int,kisi_Ad:String,kisi_Tel:String){
+    suspend fun guncelle(kisi_Id:String,kisi_Ad:String,kisi_Tel:String){
         Log.e("Kisi Guncelle","$kisi_Id - $kisi_Ad - $kisi_Tel")
     }
-    suspend fun sil(kisi_id:Int){
+    suspend fun sil(kisi_id:String){
         Log.e("Kisi Sil",kisi_id.toString())
     }
 
@@ -35,7 +35,7 @@ class KisilerDataSource
     suspend fun ara(aramaKelimesi:String):List<Kisiler> =
         withContext(Dispatchers.IO){
             val kisilerListesi=ArrayList<Kisiler>()
-            val k1=Kisiler(71,"ayaz","5645645")
+            val k1=Kisiler("71","ayaz","5645645")
             kisilerListesi.add(k1)
             return@withContext kisilerListesi
         }
